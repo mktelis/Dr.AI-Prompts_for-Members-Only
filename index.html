@@ -109,41 +109,186 @@
 </div>
 
 <script>
-    const prompts = {
+   const prompts = {
         "MarkMap": {
-            en: `Summarize this content in Markmap, the content will be formatted in Markdown, ensuring a clear hierarchy of information with titles, subtitles, different font sizes, and varied styles.`,
-            ar: `لخص هذا المحتوى في Markmap، سيتم تنسيق المحتوى في Markdown، مع ضمان وجود تسلسل هرمي واضح للمعلومات.`
+            en: `Summarize this content in Markmap, the content will be formatted in Markdown, ensuring a clear hierarchy of information with titles, subtitles, different font sizes, and varied stylistic elements. I'll **bold** the verbs and phrases denoting specific actions you can take for enhanced readability.`,
+            ar: `لخص هذا المحتوى في Markmap، سيتم تنسيق المحتوى في Markdown، مع ضمان وجود تسلسل هرمي واضح للمعلومات باستخدام العناوين والعناوين الفرعية وأحجام الخطوط المختلفة والعناصر الأسلوبية المتنوعة. سأقوم بتظليل الأفعال والعبارات التي تشير إلى الإجراءات التي يمكنك اتخاذها لتحسين الوضوح.`
         },
         "NutritionCoach": {
-            en: `Create a comprehensive one-week meal and exercise plan for Name: ayman Age: 35 years Weight: 120 kg Height: 170 cm Gender: Male Activity Level: Sedentary Dietary Restrictions: none.`,
-            ar: `أنشئ خطة شاملة للوجبات والتمارين لمدة أسبوع واحد لـ الاسم: أيمن العمر: 35 سنة الوزن: 120 كجم الطول: 170 سم الجنس: ذكر مستوى النشاط: مستقر القيود الغذائية: لا شيء.`
+            en: `Create a comprehensive one-week meal and exercise plan for Name: ayman Age: 35 years Weight: 120 kg Height: 170 cm Gender: Male Activity Level: Sedentary Dietary Restrictions: no restriction Health Concerns: well by following these guidelines:`,
+            ar: `أنشئ خطة شاملة للوجبات والتمارين لمدة أسبوع واحد لـ الاسم: أيمن العمر: 35 سنة الوزن: 120 كجم الطول: 170 سم الجنس: ذكر مستوى النشاط: خامل القيود الغذائية: لا يوجد المخاوف الصحية: بصحة جيدة باتباع هذه الإرشادات:`
         },
         "EnglishTranslator": {
-            en: `I want you to act as an English translator, spelling corrector and improver. I will speak to you in any language and you will detect the language, translate it and answer in the corrected English.`,
-            ar: `أريدك أن تعمل كمترجم للغة الإنجليزية، ومصحح للإملاء ومحسن للنصوص. سأتحدث معك بأي لغة وستكتشف اللغة، وتترجمها وتجيب بالإنجليزية المصححة.`
+            en: `I want you to act as an English translator, spelling corrector and improver. I will speak to you in any language and you will detect the language, translate it and answer in the corrected and improved version of my text, in English. I want you to replace my simplified A0-level words and sentences with more beautiful and elegant, upper level English words and sentences. Keep the meaning same, but make them more literary. I want you to only reply the correction, the improvements and nothing else. Do not write explanations. My first sentence is`,
+            ar: `أريدك أن تعمل كمترجم للغة الإنجليزية، ومصحح للإملاء ومحسن للنصوص. سأتحدث معك بأي لغة وستكتشف اللغة، وترجمها وتجيب بالإصدار المصحح والمحسن من نصي باللغة الإنجليزية. أريدك أن تستبدل كلماتي وجملي البسيطة من مستوى A0 بكلمات وجمل إنجليزية أكثر جمالاً وأناقة من مستوى أعلى. حافظ على نفس المعنى، ولكن اجعلها أكثر أدبية. أريدك أن ترد فقط على التصحيح والتحسينات ولا شيء آخر. لا تكتب تفسيرات. جملتي الأولى هي`
         },
-        // ... other prompts here ...
+        "ResearchPaperExtractor": {
+            en: `Go to this Link to see the prompt: https://github.com/nhaouari/papersnap`,
+            ar: `انتقل إلى هذا الرابط لرؤية النص: https://github.com/nhaouari/papersnap`
+        },
+        "Proofreader": {
+            en: `I want you to act as a proofreader. I will provide you texts and I would like you to review them for any spelling, grammar, or punctuation errors. Once you have finished reviewing the text, provide me with any necessary corrections or suggestions to improve the text.`,
+            ar: `أريدك أن تعمل كمصحح. سأقدم لك نصوصًا وأود أن تراجعها لأي أخطاء إملائية أو نحوية أو علامات ترقيم. بمجرد الانتهاء من مراجعة النص، قدم لي أي تصحيحات أو اقتراحات ضرورية لتحسين النص.`
+        },
+        "PediatricDoctor": {
+            en: `Act as a pediatrician with 30 years of experience as a pediatrician. Help me in diagnosing the next case study: You are called to the hospital nursery to evaluate a healthy full-term newborn boy who developed painful flaccid blisters and erosions on the tops of his feet and ankles shortly after birth. His mother had a history of similar recurrent skin lesions that healed with scarring. She also had oral and gastrointestinal tract involvement. What's the diagnosis? Diagnose the case according to the American Academy of Pediatrics (AAP)`,
+            ar: `قم بدور طبيب أطفال لديه 30 عامًا من الخبرة كطبيب أطفال. ساعدني في تشخيص دراسة الحالة التالية: تم استدعاؤك إلى حضانة المستشفى لتقييم ولادة طفل حديث الولادة كامل الأجل يتمتع بصحة جيدة تطورت لديه بثور مؤلمة مرتخية وتآكلات على قمم قدميه وكاحليه بعد فترة وجيزة من الولادة. كانت والدته لديها تاريخ من آفات جلدية مماثلة متكررة شفيت مع ندبات. كما أنها كانت تعاني من إصابات في الفم والجهاز الهضمي. ما هو التشخيص؟ شخّص الحالة وفقًا للأكاديمية الأمريكية لطب الأطفال (AAP)`
+        },
+        "DrugDoseDetermination": {
+            en: `Put a hat of a clinical pharmacist and pediatrician Consultant. How many ml per day can I give from the next drug to the next child?
+
+Name of Drug: Nitazoxanide
+Concentration of Medicine: 100 mg/5 ml
+Child Age: 5 years old
+Child Weight: 18 kg
+Case Condition: Diarrhea
+The severity of the condition: Not severe
+
+Use the following resources in your answer:
+- Drugs.com (Know more. Be sure.)
+- Uptodate (Walters kluwer)
+- Medscape Lexicomp (Walters kluwer)
+- Epocrates® (an athenahealth service)
+- Facts & Comparisons (Walters kluwer)
+- DRUGBANK
+- DynaMed
+- WebMD
+- IBM Micromedex`,
+            ar: `ضع قبعة صيدلي سريري واستشاري أطفال. كم ملليلتر في اليوم يمكنني إعطاءه من الدواء التالي للطفل التالي؟
+
+اسم الدواء: Nitazoxanide
+تركيز الدواء: 100 ملغ/5 مل
+عمر الطفل: 5 سنوات
+وزن الطفل: 18 كجم
+حالة الحالة: إسهال
+شدة الحالة: غير شديدة
+
+استخدم الموارد التالية في إجابتك:
+- Drugs.com (اعرف أكثر. كن متأكدًا.)
+- Uptodate (والترز كلوير)
+- Medscape Lexicomp (والترز كلوير)
+- Epocrates® (خدمة أثينا هيلث)
+- Facts & Comparisons (والترز كلوير)
+- DRUGBANK
+- DynaMed
+- WebMD
+- IBM Micromedex`
+        },
+        "CVWriting": {
+            en: `Write a professional CV using the following details:
+
+- Name: Ayman Elkady
+- Experience: Clinical Pharmacist with extensive experience in patient care and drug management.
+- Skills: Proficient in managing drug interactions, patient counseling, and clinical research.
+- Education: Faculty of Pharmacy, Alexandria University
+- Certifications: Marketing Diploma, Quality Diploma
+- Additional Roles: AI Trainer in PharmAcademy, EL-Sadat Academy, and various medical events.`,
+            ar: `اكتب سيرة ذاتية احترافية باستخدام التفاصيل التالية:
+
+- الاسم: أيمن الكادي
+- الخبرة: صيدلي سريري ذو خبرة واسعة في رعاية المرضى وإدارة الأدوية.
+- المهارات: ماهر في إدارة تفاعلات الأدوية، توجيه المرضى، والبحث السريري.
+- التعليم: كلية الصيدلة، جامعة الإسكندرية
+- الشهادات: دبلوم تسويق، دبلوم جودة
+- الأدوار الإضافية: مدرب للذكاء الاصطناعي في PharmAcademy، أكاديمية السادات، والعديد من الفعاليات الطبية.`
+        },
+        "Comparison": {
+            en: `Compare the characteristics of natural supplements and synthetic drugs. Provide a detailed analysis highlighting the differences in efficacy, safety, and patient outcomes.`,
+            ar: `قارن بين خصائص المكملات الطبيعية والأدوية الاصطناعية. قدم تحليلًا مفصلًا يبرز الفروقات في الفعالية، الأمان، ونتائج المرضى.`
+        },
+        "PoemWriting": {
+            en: `Write a poem on the beauty of nature.`,
+            ar: `اكتب قصيدة عن جمال الطبيعة.`
+        },
+        "LetterWriting": {
+            en: `Write a formal letter to apply for a job.`,
+            ar: `اكتب خطابًا رسميًا للتقدم لوظيفة.`
+        },
+        "HRExpert": {
+            en: `Describe the role of an HR expert in managing employee relations and organizational development. Highlight key responsibilities and strategies for effective HR management.`,
+            ar: `صف دور خبير الموارد البشرية في إدارة علاقات الموظفين وتطوير المنظمة. أبرز المسؤوليات الرئيسية والاستراتيجيات لإدارة الموارد البشرية الفعالة.`
+        },
+        "GeographicalMapping": {
+            en: `Create a geographical map showing the distribution of a specific species.`,
+            ar: `أنشئ خريطة جغرافية تظهر توزيع نوع معين.`
+        },
+        "YouTubeProfile": {
+            en: `Design a professional YouTube profile picture with the following specifications:
+
+- Background: Minimalist and modern design.
+- Text: Include the name "Ayman" in bold, vibrant colors.
+- Elements: Add a small tagline below the name.`,
+            ar: `صمم صورة بروفايل احترافية لليوتيوب بالمواصفات التالية:
+
+- الخلفية: تصميم بسيط وحديث.
+- النص: قم بتضمين الاسم "أيمن" بألوان جريئة وحيوية.
+- العناصر: أضف شعار صغير تحت الاسم.`
+        },
+        "BMICalculator": {
+            en: `Create an HTML-based BMI calculator using vanilla JavaScript and FetchAPI. Ensure the result is displayed in a user-friendly format with markdown styling.`,
+            ar: `أنشئ حاسبة مؤشر كتلة الجسم (BMI) باستخدام JavaScript و FetchAPI. تأكد من عرض النتيجة بتنسيق سهل الاستخدام مع تنسيق Markdown.`
+        },
+        "DrugInteractionChecker": {
+            en: `Develop an HTML-based drug interaction checker using the Llama API. Include input fields for drug names and display results in a structured format.`,
+            ar: `طور فاحص تفاعلات الأدوية المستند إلى HTML باستخدام Llama API. قم بتضمين حقول إدخال لأسماء الأدوية و عرض النتائج بتنسيق منظم.`
+        },
+        "ImageGeneration": {
+            en: `Design high-quality images based on the following prompts:
+
+1. A minimalist image of a candle with the name 'Ayman' written in colorful smoke.
+2. A regal capital letter "A" adorned with a golden crown and surrounded by smaller crowns and red gemstones.`,
+            ar: `صمم صورًا عالية الجودة استنادًا إلى المطالبات التالية:
+
+1. صورة بسيطة لشمعة مكتوب عليها اسم "أيمن" بدخان ملون.
+2. حرف "A" كبير مزين بتاج ذهبي ومحيط بتاجات صغيرة وأحجار كريمة حمراء.`
+        },
+        "XOGame": {
+            en: `Design a simple XO game interface with the following features:
+
+- Grid Layout: 3x3 grid for gameplay.
+- Interactive Buttons: Allow users to click and place their marks.
+- Winning Logic: Display results when a player wins or the game ends in a draw.`,
+            ar: `صمم واجهة لعبة XO بسيطة بالميزات التالية:
+
+- تخطيط الشبكة: شبكة 3x3 للعب.
+- أزرار تفاعلية: تسمح للمستخدمين بالنقر ووضع علامات.
+- منطق الفوز: عرض النتائج عند فوز لاعب أو انتهاء اللعبة بالتعادل.`
+        },
+        "FlyerDesign": {
+            en: `Create an attractive flyer for Paracetamol containing essential drug information for patients.`,
+            ar: `أنشئ منشورًا جذابًا يحتوي على معلومات أساسية حول الدواء للمرضى.`
+        },
+        "ParetoPrinciple": {
+            en: `Identify and share the most important 20% of learnings from a chosen topic that will help understand 80% of it.`,
+            ar: `حدد وشارك أهم 20% من التعلميات من موضوع مختار سيساعد على فهم 80% منه.`
+        },
+        "AnimatedScene": {
+            en: `Design an animated-style scene featuring a young man with big expressive eyes, wearing a yellow hoodie, sitting with a friendly small robot.`,
+            ar: `صمم مشهدًا بأسلوب الرسوم المتحركة يظهر شابًا بعيون كبيرة معبرة، يرتدي سترة صفراء، جالسًا مع روبوت صغير ودود.`
+        },
+        "RadioStreamEmbed": {
+            en: `Embed a radio stream using HTML and ensure it plays seamlessly on a webpage.`,
+            ar: `أدمج بث إذاعي باستخدام HTML وتأكد من تشغيله بسلاسة على صفحة الويب.`
+        },
+        "CinematicTransformation": {
+            en: `Craft detailed prompts for a cinematic transformation sequence involving fusion and creation.`,
+            ar: `اصنع مطالبات مفصلة لتسلسل تحول سينمائي يتضمن الاندماج والإبداع.`
+        },
+        "BookGenerator": {
+            en: `Generate a book title, chapters, and detailed content based on a chosen topic. Follow the provided structure for consistency.`,
+            ar: `أنشئ عنوان كتاب وفصول ومحتوى مفصل استنادًا إلى موضوع مختار. اتبع الهيكل المقدم للتناسق.`
+        },
+        "GlobalWarmingEducation": {
+            en: `Create an educational presentation on global warming, covering its causes, effects, and solutions.`,
+            ar: `أنشئ عرضًا تعليميًا حول الاحتباس الحراري، يغطي أسبابه وآثاره وحلوله.`
+        },
         "CorticosteroidConverter": {
-            en: `Create an application in HTML that calculates the equivalent doses of different types of corticosteroids. Make it an attractive website in color and calculate it correctly.`,
-            ar: `أنشئ تطبيقًا في HTML يحسب الجرعات المكافئة لأنواع مختلفة من الكورتيكوستيرويدات. اجعلها موقعًا جذابًا بالألوان واحسبها بشكل صحيح.`
+            en: `Develop an HTML application to calculate equivalent doses of corticosteroids with an attractive and user-friendly interface.`,
+            ar: `طور تطبيق HTML لحساب الجرعات المكافئة من الكورتيكوستيرويدات بواجهة جذابة وسهلة الاستخدام.`
         },
-        "AIHealthcarePractice": {
-            en: `Dr. Ayman Elkady: Faculty of Pharmacy, Alexandria University
-            Roles:
-            - AI Trainer in PharmAcademy
-            - AI Trainer in EL-Sadat Academy
-            - AI Trainer in medical events at Mansoura University, Al-Ahram Canadian University, and Alexandria University
-            - Marketing Manager at Mabaret Al Nahda Hospital in Alexandria (previously)
-            Contact: Tel: 01010391353`,
-            ar: `الدكتور أيمن الكادي: كلية الصيدلة، جامعة الإسكندرية
-            الأدوار:
-            - مدرب للذكاء الاصطناعي في PharmAcademy
-            - مدرب للذكاء الاصطناعي في أكاديمية السادات
-            - مدرب للذكاء الاصطناعي في الأحداث الطبية بجامعة المنصورة، جامعة الأهرام الكندية، وجامعة الإسكندرية
-            - مدير التسويق في مستشفى مبرة النهضة بالإسكندرية (سابقًا)
-            التواصل: الهاتف: 01010391353`
-        }
-    };
+    
+        
+    
 
     document.getElementById('promptSelector').addEventListener('change', function() {
         const selectedPrompt = this.value;
