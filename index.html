@@ -1,0 +1,158 @@
+
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+							<style>
+								body {
+									background-color: white; /* Ensure the iframe has a white background */
+								}
+
+								
+							</style>
+                        </head>
+                        <body>
+                            <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .output {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-height: 100px;
+            margin-bottom: 15px;
+            white-space: pre-wrap;
+        }
+        button {
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Select Your Desired Prompt</h1>
+    <label for="promptSelector">Choose a Prompt:</label>
+    <select id="promptSelector">
+        <option value="">--Select a Prompt--</option>
+        <option value="MarkMap">MarkMap</option>
+        <option value="NutritionCoach">Nutrition Coach Expert</option>
+        <option value="EnglishTranslator">English Translator</option>
+        <option value="ResearchPaperExtractor">Extract Information From a Research Paper</option>
+        <option value="Proofreader">Act as a Proofreader</option>
+        <option value="PediatricDoctor">A Pediatric Doctor</option>
+        <option value="DrugDoseDetermination">Drug Dose Determination</option>
+        <option value="CVWriting">CV Writing</option>
+        <option value="Comparison">Comparison Between Two Things</option>
+        <option value="PoemWriting">Poem Writing</option>
+        <option value="LetterWriting">Letter Writing</option>
+        <option value="HRExpert">HR Expert</option>
+        <option value="GeographicalMapping">Geographical Mapping</option>
+        <option value="YouTubeProfile">YouTube Profile</option>
+        <option value="BMICalculator">BMI Calculator</option>
+        <option value="DrugInteractionChecker">Drug Interaction Checker</option>
+        <option value="ImageGeneration">Image Generation</option>
+        <option value="XOGame">XO Game Build</option>
+        <option value="FlyerDesign">Building Flyer</option>
+        <option value="ParetoPrinciple">Pareto Principle Learning</option>
+        <option value="AnimatedScene">Animated Scene Design</option>
+        <option value="RadioStreamEmbed">Radio Stream Embed</option>
+        <option value="CinematicTransformation">Cinematic Transformation</option>
+        <option value="BookGenerator">Book Generator</option>
+        <option value="GlobalWarmingEducation">Global Warming Education</option>
+        <option value="CorticosteroidConverter">Equivalent Doses of Corticosteroids</option>
+        <option value="AIHealthcarePractice">AI in Healthcare Practice</option>
+    </select>
+    <div class="output" id="output"></div>
+    <button id="copyButton">Copy Prompt</button>
+</div>
+
+<script>
+    const prompts = {
+        "MarkMap": `Summarize this content in Markmap, the content will be formatted in Markdown, ensuring a clear hierarchy of information with titles, subtitles, different font sizes, and varied stylistic elements. I'll *bold* the verbs and phrases denoting specific actions you can take for enhanced readability.`,
+        "NutritionCoach": `Create a comprehensive one-week meal and exercise plan for Name: ayman Age: 35 years Weight: 120 kg Height: 170 cm Gender: Male Activity Level: Sedentary Dietary Restrictions: no restriction Health Concerns: well by following these guidelines...`,
+        "EnglishTranslator": `I want you to act as an English translator, spelling corrector and improver. I will speak to you in any language and you will detect the language, translate it and answer in the corrected and improved version of my text, in English...`,
+        // ... other prompts here ...
+        "CorticosteroidConverter": `Create an application in html that calculates the equivalent doses of different types of corticosteroids Make it attractive website in colour and calculate it correctly in a medical way.`,
+        "AIHealthcarePractice": `Faculty of Pharmacy Alexandria University • Marketing Diploma • Quality Diploma • AI Trainer in PharmAcademy. • AI Trainer in EL-Sadat Academy. • AI Trainer in medical events like : - Mansoura University - Al-Ahram Canadian University - Alexandria University Marketing Manager at Mabaret Al Nahda Hospital in Alexandria previously Tel: 01010391353`
+    };
+
+    document.getElementById('promptSelector').addEventListener('change', function() {
+        const selectedPrompt = this.value;
+        const outputDiv = document.getElementById('output');
+        if (selectedPrompt && prompts[selectedPrompt]) {
+            outputDiv.textContent = prompts[selectedPrompt];
+        } else {
+            outputDiv.textContent = '';
+        }
+    });
+
+    document.getElementById('copyButton').addEventListener('click', function() {
+        const outputDiv = document.getElementById('output');
+        if (outputDiv.textContent) {
+            navigator.clipboard.writeText(outputDiv.textContent).then(() => {
+                alert('Prompt copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
+
+
+
+							<script>
+                            	
+							</script>
+                        </body>
+                        </html>
+                    
